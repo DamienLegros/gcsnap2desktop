@@ -226,7 +226,7 @@ class Assemblies:
         Returns:
             str: The full path of the downloaded file.
         """        
-        assembly_label = url.split('/')[-1]  # e.g., GCF_000260135.1_ASM26013v1
+        assembly_label = url.split('/')[-2]  # e.g., GCF_000260135.1_ASM26013v1 ([-1] -> [-2] to fix the NCBI HTTP Error 404)
         assembly_file_gz = '{}_genomic.gff.gz'.format(assembly_label)
         full_path = os.path.join(self.assembly_dir, assembly_file_gz)
 
